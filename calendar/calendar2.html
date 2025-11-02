@@ -171,7 +171,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-try { await enableIndexedDbPersistence(db); } catch(e){}
+//try { await enableIndexedDbPersistence(db); } catch(e){}
+enableIndexedDbPersistence(db).catch(()=>{});
+
 
 const eventsRef = collection(db, "events");
 
