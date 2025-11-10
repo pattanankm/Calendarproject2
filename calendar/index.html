@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khaimook's Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top banner -->
+  <div class="calendar-banner">Khaimook's Personal Calendar</div>
+
+  <div class="main-container">
+    <!-- Project header -->
+    <div class="project-header">
+      <h1 class="project-title">Khaimook's Calendar</h1>
+      <p class="project-subtitle">You can add your plan here :0</p>
+      <p style="margin-top:10px;color:#666;">By Pattanan Siriworakul 670615030</p>
+    </div>
+
+    <div class="content-wrapper">
+      <!-- Main calendar section -->
+      <div class="calendar-body">
+        <div class="calendar-header">
+          <h1 class="calendar-title">My Calendar</h1>
+          <div class="calendar-nav">
+            <button class="nav-btn" id="prevBtn">← Back</button>
+            <span class="current-month" id="currentMonth"></span>
+            <button class="nav-btn" id="nextBtn">Next →</button>
+          </div>
+        </div>
+        
+        <!-- Display statistics -->
+        <div class="stats">
+          <h4>This Month's Stats</h4>
+          <span id="eventCount">Number of Events: 0</span>
+        </div>
+        
+        <!-- Calendar table -->
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+
+      <!-- Sidebar for Events -->
+      <div class="events-sidebar">
+        <h3>Events This Month</h3>
+        <div id="eventsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button to add an event -->
+  <button class="add-event-btn" id="addBtn">+</button>
+
+  <!-- Modal for adding/editing Event -->
+  <div class="modal" id="eventModal">
+    <div class="modal-content">
+      <h3 id="modalTitle">New Event</h3>
+      <input type="text" id="eventTitle" placeholder="Event title">
+      <input type="date" id="eventDate">
+      <input type="time" id="eventTime">
+      <textarea id="eventDescription" placeholder="Description (optional)" rows="3"></textarea>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="saveBtn">Save</button>
+        <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
+        <button class="btn btn-danger" id="deleteBtn" style="display:none;">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connect JavaScript -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

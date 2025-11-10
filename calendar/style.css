@@ -1,0 +1,377 @@
+/* ================================
+   RESET & GLOBAL STYLES
+   ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fddeea 10%, #c683ed 100%);
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+/* ================================
+   BANNER (top)
+   ================================ */
+.calendar-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(215, 239, 244, 0.95);
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+/* ================================
+   MAIN CONTAINER
+   ================================ */
+.main-container {
+  margin-top: 60px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ================================
+   PROJECT HEADER
+   ================================ */
+.project-header {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.project-title {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.project-subtitle {
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   CONTENT WRAPPER (Grid Layout)
+   ================================ */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   CALENDAR BODY
+   ================================ */
+.calendar-body {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.calendar-header {
+  background: linear-gradient(45deg, #bde0fe, #ffafcc);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.calendar-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #2e6480;
+}
+
+/* ================================
+   CALENDAR NAVIGATION
+   ================================ */
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* ปุ่ม next month ขึ้นบน */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: #2e6480;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+.current-month {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2e6480;
+}
+
+/* ================================
+   CALENDAR GRID
+   ================================ */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #f0f0f0;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* หัววัน sun mon */
+.day-header {
+  background: #bde0fe;
+  color: #2e6480;
+  padding: 15px 5px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.day-cell {
+  background: white;
+  min-height: 100px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.day-cell:hover {
+  background: #f8f9ff;
+  border-color: #bde0fe;
+}
+
+.day-cell.other-month {
+  background: #f9f9f9;
+  color: #ccc;
+}
+
+.day-cell.today {
+  background: linear-gradient(45deg, #bde0fe, #ffafcc);
+color: #2e6480;
+  font-weight: bold;
+}
+
+.day-number {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* ================================
+   EVENTS (ปุ่ม event)
+   ================================ */
+.event {
+  background: #ff6b6b;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+  margin: 2px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* ขยายตอนกดปุ่ม */
+.event:hover {
+  background: #ff5252;
+  transform: scale(1.05);
+}
+
+/* ================================
+   STATS
+   ================================ */
+.stats {
+  padding: 20px;
+  background: #f8f9ff;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* ================================
+   EVENTS SIDEBAR
+   ================================ */
+.events-sidebar {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-height: 850px;
+  overflow-y: auto;
+}
+
+.event-item {
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff5f8 100%);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #ff6b6b;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* ปุ่ม event เลื่อนขวา */
+.event-item:hover {
+  transform: translateX(5px);
+}
+
+.event-item-title {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.event-item-date {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.event-item-time {
+  color: #888;
+  font-size: 13px;
+}
+
+.no-events {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-style: italic;
+}
+
+/* ================================
+   ADD EVENT BUTTON 
+   ================================ */
+.add-event-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(45deg, #6bfff0, #6de0f5);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(133, 194, 215, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.add-event-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* ================================
+   MODAL
+   ================================ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  min-width: 400px;
+}
+
+.modal h3 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.modal input:focus,
+.modal textarea:focus {
+  border-color: #bde0fe;
+  outline: none;
+}
+
+/* ================================
+   MODAL BUTTONS
+   ================================ */
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #bde0fe, #ffafcc);
+  color: #2e6480;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.btn-danger {
+  background: #ff6b6b;
+  color: white;
+}
